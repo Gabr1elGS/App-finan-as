@@ -1,272 +1,198 @@
-# 💰 Controle Financeiro v8.0
+# 💰 Controle Financeiro v9.0
 
-Aplicativo de controle financeiro pessoal 100% offline. Gerencie seus gastos, salário, dividendos e agora também seus **veículos** — direto do celular, sem precisar de internet ou banco de dados.
-
----
-
-## 📱 Screenshots
-
-| Tela de Boas-vindas                    | Dashboard              | Gastos                          |
-| -------------------------------------- | ---------------------- | ------------------------------- |
-| Crie seu perfil com nome, foto ou avatar | Resumo completo do mês | Adicione e gerencie contas      |
-
-| Receitas             | Veículos 🆕                          | Perfil                 |
-| -------------------- | ----------------------------------- | ---------------------- |
-| Salário e dividendos | Abastecimentos, manutenções e km/L  | Backup e configurações |
+Aplicativo de controle financeiro pessoal **100% offline**. Gerencie gastos, receitas, dividendos e veículos direto do celular, sem internet e sem banco de dados.
 
 ---
 
-## ✨ Novidades da v8.0
+## ✨ Novidades da v9.0 — Vencimento de Dividendos
 
-### 🚗 Nova Aba Veículos
+### 🔔 Data de vencimento
+* Ao cadastrar um **Dividendo**, informe a **data de vencimento** (opcional)
+* Em dividendos parcelados, o vencimento **avança automaticamente** a cada mês
+  * Ex: `15/01`, `15/02`, `15/03`...
+  * Datas inválidas são ajustadas (31/01 → 28/02)
 
-Uma aba inteira dedicada aos seus veículos, com navegação própria na barra inferior:
+### 📢 Sistema de notificações
+* **Alerta no app** — painel destacado no Resumo e na aba Receitas
+* **Notificação no celular** — aviso do sistema operacional quando vencer (1x por dia)
+* **Badge numérico** no ícone da aba Receitas com a quantidade de pendências
+* Botão **✓** para marcar como recebido direto do alerta
 
-- Cadastre **quantos veículos** quiser (carro, moto, etc.)
-- Card individual por veículo com hodômetro atualizado (🛣️ km)
-- Exclusão com confirmação — remove junto todos os abastecimentos e manutenções do veículo
+### 🎨 Sinalização por cores
 
-### ⛽ Controle de Abastecimento
+| Situação | Cor | Indicação |
+| -------- | --- | --------- |
+| Atrasado | 🔴 Vermelho | `Atrasado X dias` |
+| Vence hoje | 🟠 Âmbar (pulsante) | `Vence hoje` |
+| Próximos 3 dias | 🔵 Azul | `Vence em X dias` |
+| Futuro | ⚪ Cinza | Apenas a data |
+| Recebido | ⚪ Cinza | Alerta removido |
 
-- Registre cada abastecimento com **valor (R$), litros, km do hodômetro e data**
-- Escolha o combustível: **⛽ Gasolina** ou **🌿 Álcool**
-- **Média de consumo automática (km/L)** calculada a partir do hodômetro
-- Estatísticas do mês: **Km percorridos**, **Litros** consumidos e média geral
-- Edite ou apague qualquer abastecimento
+---
 
-### 🔧 Manutenções do Veículo
+## 📋 Histórico de Versões
 
-- Registre manutenções com descrição, valor e data (ex: troca de óleo, pneus)
-- Histórico completo por veículo
-- Edite ou apague individualmente
-
-### 🔗 Integração opcional com a aba Gastos
-
-- Ao salvar um abastecimento ou manutenção, escolha se o valor **também entra na aba Gastos**
-- As categorias **Abastecimento** e **Veículo** são criadas automaticamente
-- Prefere controlar separado? Sem problema: o registro pode ficar **apenas na aba Veículos**
-
-### 💳 Forma de Pagamento nos Gastos
-
-- Todo gasto agora pode ser marcado como **💵 Dinheiro** ou **💳 Cartão**
-- Badge roxa de identificação em cada item da lista
-- Nova categoria padrão: **Cartões**
-
-### 🖼️ Foto de Perfil
-
-- Além dos 20 avatares de emoji, agora você pode usar uma **foto da galeria**
-- Validação de imagem com mensagens de erro amigáveis
-- Remova a foto e volte para o emoji quando quiser
-
-### 📱 Instalação facilitada
-
-- Novo card **"Instalar no celular"** na aba Perfil, com o passo a passo
-- Selos informativos: 🌐 100% Offline • 📱 PWA • 💾 Backup
-
-### 🗂️ Estrutura de dados v8
-
-- Nova estrutura de armazenamento (`version: 8`) com `vehicles`, `fuelEntries` e `maintenances`
-- **Backups de versões antigas são migrados automaticamente** ao importar — nada se perde
+| Versão | Novidades |
+| ------ | --------- |
+| **v9.0** | 🔔 Vencimento de dividendos + notificações |
+| **v8.0** | ⛽ Abastecimento com forma de pagamento integrada aos Gastos |
+| **v7.0** | 🚗 Aba Veículos: abastecimentos, km/mês e manutenção |
+| **v6.0** | 🐛 Correção de fuso horário e recorrência • parcelas • foto de perfil |
+| **v5.0** | 📊 Gráficos no comparativo • dividendos multi-mês • ícone Mora |
+| **v4.0** | 👤 Perfil e backup |
+| **v3.0** | ✏️ Edição e recorrentes |
+| **v2.0** | ☑️ Dividendos e checkbox |
+| **v1.0** | 🚀 Lançamento |
 
 ---
 
 ## ✨ Funcionalidades
 
-### 👤 Perfil do Usuário
+### 👤 Perfil
+* Nome + avatar emoji (24 opções) **ou foto da galeria**
+* Foto comprimida para 256px, salva apenas no dispositivo
 
-- Cadastro com nome e avatar personalizado
-- **20 opções de emoji** ou **foto da galeria** 🆕
-- Edição de perfil a qualquer momento
+### 💸 Gastos
+* Categorias ilimitadas com **sugestões rápidas**
+* ☑️ Marcar como pago • ✏️ Editar • 🗑️ Excluir
+* 🔄 Recorrentes (copia do mês anterior com um toque)
+* 💳 **Parcelamento** com contador `1/12`, `2/12`...
 
-### 💸 Gestão de Gastos
+### 💵 Receitas
+* **Salário** e **Dividendos** separados
+* 📅 Dividendos com múltiplas parcelas e contador de andamento
+* ½ Marcar pagamento **parcial** (destaque amarelo)
+* 🔔 **Data de vencimento com notificação** *(novo na v9.0)*
 
-- Cadastro de categorias ilimitadas
-- Categorias padrão: Alimentação, Moradia, Transporte, Saúde, Lazer, Educação, **Cartões** 🆕, Outros
-- Adicionar contas com nome, valor e categoria
-- **💳 Forma de pagamento: Dinheiro ou Cartão** 🆕
-- ☑️ Marcar contas como **pagas**
-- ✏️ Editar qualquer gasto
-- 🔄 Marcar gastos como **recorrentes**
-- 🗑️ Excluir gastos
+### 🚗 Veículos
+* Cadastro de **Carro** 🚗 e **Moto** 🏍️
+* **Abastecimentos**: valor, odômetro, litros, gasolina/álcool, data
+* **Cálculo automático**: km percorridos, litros, média km/L e preço/litro
+* **Manutenções**: serviço, valor e data
+* 💵 **Dinheiro** → lançado também em Gastos
+* 💳 **Cartão** → registrado somente em Veículos
 
-### 💵 Gestão de Receitas
+### 📊 Dashboard
+* Saldo do mês com indicador visual
+* Cards de Salário e Dividendos
+* 🏆 Ranking de categorias
+* Barra de progresso de contas pagas
 
-- Cadastro de **Salário** e **Dividendos** separados
-- ☑️ Marcar como **recebido**
-- ✏️ Editar receitas
-- 🔄 Marcar receitas como **recorrentes**
-- 📅 Dividendos com múltiplos meses
-- ½ Marcar dividendo como pagamento parcial
+### 📈 Comparativo
+* Gráfico de barras por mês (Gastos, Salário, Dividendos)
+* Categoria com maior gasto e saldo mensal
 
-### 🚗 Veículos 🆕
+### 📦 Backup
+* 📤 Exportar / 📥 Importar em JSON
+* Importação compatível com formatos de versões anteriores
 
-- 🚘 Cadastro de múltiplos veículos
-- ⛽ Abastecimentos com litros, hodômetro e tipo de combustível
-- 📏 Cálculo automático de **km percorridos** e **média km/L**
-- 🔧 Histórico de manutenções com valores
-- 🔗 Lançamento opcional na aba Gastos com um toque
+---
 
-### 📅 Controle por Mês
+## 🔔 Como ativar as notificações
 
-- Seletor de mês com **calendário visual**
-- Navegação por setas ◀ ▶
-- Indicador de meses com dados (bolinha verde)
-- Botão rápido "📍 Ir para mês atual"
+1. Abra o app e cadastre um dividendo com data de vencimento
+2. Toque em **"Ativar"** no aviso que aparece
+3. Confirme a permissão no navegador
 
-### 🔄 Gastos e Receitas Recorrentes
-
-- Marque itens fixos como recorrentes
-- Copie todos os recorrentes do mês anterior com um toque
-- Avisos inteligentes quando não há nada para copiar
-
-### 📊 Dashboard (Resumo)
-
-- Saldo do mês com indicador visual
-- Cards de Salário e Dividendos
-- ✅ Contas pagas vs ⏳ pendentes (com totais em R$)
-- 🏆 Ranking de categorias
-- 📋 Últimas contas do mês
-
-### 📈 Comparativo Mensal
-
-- Visão de todos os meses com gráficos
-- Gastos, salário e dividendos de cada mês
-- 🏆 Categoria com maior gasto
-- Saldo mensal
-
-### 📦 Backup e Restauração
-
-- 📤 Exportar dados em JSON
-- 📥 Importar dados de backup
-- 🔄 **Migração automática** de backups antigos para a estrutura v8 🆕
+> **Dica:** para receber avisos com o app fechado, instale-o na tela inicial (PWA). As notificações são disparadas quando o app é aberto e o vencimento está próximo.
 
 ---
 
 ## 🛡️ Privacidade
 
-- **100% Offline** — nenhum dado é enviado para a internet
-- Dados salvos no **localStorage** do navegador
-- Sem banco de dados, sem servidor, sem rastreamento
-- Seus dados são somente seus
+* **100% Offline** — nenhum dado sai do dispositivo
+* Armazenamento em **localStorage**
+* Sem servidor, sem rastreamento, sem conta
 
 ---
 
-## 🚀 Como Instalar no Netlify
+## 🚀 Deploy no Netlify
 
-### Opção 1: Deploy via GitHub (Recomendado)
+### Via GitHub (recomendado)
+1. Faça fork/upload deste repositório
+2. Em [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import an existing project**
+3. Selecione o repositório e clique em **Deploy**
 
-1. Faça fork deste repositório ou faça upload dos arquivos para seu GitHub
-2. Acesse [app.netlify.com](https://app.netlify.com)
-3. Clique em "Add new site" → "Import an existing project"
-4. Conecte seu GitHub e selecione o repositório
-5. As configurações de build serão detectadas automaticamente
-6. Clique em "Deploy site"
-7. Pronto! Seu site estará no ar em minutos
+### Deploy manual
+1. Baixe o ZIP da release
+2. Arraste em [app.netlify.com/drop](https://app.netlify.com/drop)
 
-### Opção 2: Deploy manual (ZIP)
-
-1. Execute `npm run build` para gerar a pasta `out/`
-2. Acesse [app.netlify.com/drop](https://app.netlify.com/drop)
-3. Arraste a pasta `out/` para fazer o deploy
-4. Pronto!
-
-### 📱 Instalar no Android
-
-1. Abra o link do seu app no **Chrome**
-2. Toque nos **3 pontinhos** (⋮)
-3. Toque em **"Instalar aplicativo"** ou **"Adicionar à tela inicial"**
-4. O app aparece como ícone no celular!
+### 📱 Instalar no celular
+**Android (Chrome):** ⋮ → *Instalar aplicativo*
+**iPhone (Safari):** Compartilhar → *Adicionar à Tela de Início*
 
 ---
 
-## 🔄 Como Atualizar
+## 🔄 Como atualizar sem perder dados
 
-1. No app atual: vá em **👤 Perfil** → toque **📤 Exportar**
-2. Faça o deploy da nova versão
-3. Abra o app atualizado → **👤 Perfil** → **📥 Importar**
-4. Selecione o arquivo de backup
-5. Pronto! ✅ — backups antigos são **migrados automaticamente** para a v8.0
+1. **👤 Perfil** → **📤 Exportar** (guarde o JSON)
+2. Publique a nova versão
+3. **👤 Perfil** → **📥 Importar** → selecione o backup
 
----
-
-## 🗂️ Histórico de Versões
-
-| Versão | Destaques |
-| ------ | --------- |
-| **v8.0** | 🚗 Aba Veículos (abastecimento, manutenção, km/L) • 💳 Forma de pagamento (Dinheiro/Cartão) • 🖼️ Foto de perfil • 📱 Card de instalação • Migração automática de backups |
-| v6.0–7.x | Melhorias de interface, desempenho e estabilidade |
-| v5.0 | 📈 Dividendos com múltiplos meses • ½ Pagamento parcial • 🔤 Ordenação alfabética • 📊 Gráficos na aba Comparar • 🎮 Novo ícone |
-| v4.5 | Versão inicial pública |
+> Atualizando no mesmo domínio, os dados são mantidos automaticamente. O backup é garantia extra.
 
 ---
 
 ## 🏗️ Tecnologias
 
-| Tecnologia         | Uso                      |
-| ------------------ | ------------------------ |
-| **Next.js 16**     | Framework React          |
-| **React 19**       | Interface do usuário     |
-| **TypeScript**     | Tipagem segura           |
-| **Tailwind CSS 4** | Estilização              |
-| **Recharts**       | Gráficos                 |
-| **localStorage**   | Armazenamento de dados   |
-| **PWA**            | Funciona como app nativo |
+| Tecnologia | Uso |
+| ---------- | --- |
+| **Next.js 16** | Framework React (static export) |
+| **React 19** | Interface |
+| **TypeScript** | Tipagem segura |
+| **Tailwind CSS 4** | Estilização |
+| **Recharts** | Gráficos |
+| **Notification API** | Alertas de vencimento |
+| **localStorage** | Persistência offline |
+| **PWA** | Instalável como app nativo |
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Estrutura
 
 ```
 src/
 ├── app/
-│   ├── page.tsx           # Página principal
-│   ├── layout.tsx         # Layout base
-│   └── globals.css        # Estilos globais
+│   ├── page.tsx
+│   ├── layout.tsx
+│   └── globals.css
 ├── components/
-│   ├── FinanceApp.tsx     # App principal e navegação
-│   ├── Dashboard.tsx      # Tela de resumo
-│   ├── ExpensesTab.tsx    # Aba de gastos
-│   ├── RevenueTab.tsx     # Aba de receitas
-│   ├── VehiclesTab.tsx    # Aba de veículos (abastecimento + manutenção) 🆕
-│   ├── CompareTab.tsx     # Aba de comparação
-│   ├── ProfileTab.tsx     # Aba de perfil
-│   ├── MonthChart.tsx     # Gráficos
-│   ├── MonthSelector.tsx  # Seletor de mês
-│   ├── AvatarPicker.tsx   # Foto/emoji do perfil 🆕
-│   └── WelcomeScreen.tsx  # Tela de boas-vindas
-├── lib/
-│   ├── types.ts           # Tipos (Vehicle, FuelEntry, Maintenance...) 🆕
-│   ├── storage.ts         # localStorage + migração v8 🆕
-│   └── utils.ts           # Utilitários
-public/
-├── manifest.json          # Configuração PWA
-├── icon-192.png           # Ícone 192x192
-└── icon-512.png           # Ícone 512x512
+│   ├── FinanceApp.tsx      # Navegação e estado global
+│   ├── Dashboard.tsx
+│   ├── ExpensesTab.tsx
+│   ├── RevenueTab.tsx
+│   ├── VehiclesTab.tsx
+│   ├── CompareTab.tsx
+│   ├── ProfileTab.tsx
+│   ├── DueAlerts.tsx       # Alertas de vencimento (v9.0)
+│   ├── MonthChart.tsx
+│   ├── MonthSelector.tsx
+│   ├── Avatar.tsx
+│   ├── AvatarPicker.tsx
+│   └── WelcomeScreen.tsx
+└── lib/
+    ├── types.ts
+    ├── storage.ts          # Persistência e migrações
+    ├── utils.ts            # Datas, moeda, cálculos
+    └── notifications.ts    # Notification API (v9.0)
 ```
 
 ---
 
-## 📋 Desenvolvimento Local
+## 💻 Desenvolvimento
 
 ```bash
-# Instalar dependências
 npm install
-
-# Rodar em desenvolvimento
-npm run dev
-
-# Build para produção
-npm run build
-
-# A pasta 'out/' será gerada com os arquivos estáticos
+npm run dev      # http://localhost:3000
+npm run build    # gera a pasta out/
 ```
 
 ---
 
 ## 📄 Licença
 
-Este projeto é de uso pessoal e livre. Use, modifique e distribua como quiser.
+Uso pessoal e livre. Use, modifique e distribua como quiser.
 
 ---
 
-Feito com ❤️ para quem quer controlar suas finanças — e agora também seus veículos 🚗
+Feito com ❤️ para quem quer controlar suas finanças
