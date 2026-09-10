@@ -1,6 +1,47 @@
-# 💰 Controle Financeiro v9.0
+# 💰 Mora Finanças v9.2
 
 Aplicativo de controle financeiro pessoal **100% offline**. Gerencie gastos, receitas, dividendos e veículos direto do celular, sem internet e sem banco de dados.
+
+---
+
+## ✨ Novidades da v9.2 — Aba Empreendimento
+
+### 🏢 Módulo Empreendimento (opcional)
+* Ative/desative pelo botão em **👤 Perfil → 🧩 Módulos**
+* Quando ativo, a aba **🏢 Empresa** aparece na barra inferior
+* Controle financeiro do negócio **separado** das finanças pessoais
+
+### 📂 Três categorias
+| Categoria | Recursos |
+| --------- | -------- |
+| 💸 **Gastos** | Criar/editar/excluir • **categorias personalizadas** • **data definida pelo usuário** • marcar como pago |
+| 💰 **Receita** | Criar/editar/excluir • data definida pelo usuário • marcar como recebida |
+| 📈 **Dividendos** | Parcelamento • data de início • vencimento com aviso • pagamento parcial |
+
+### 📈 Dividendos do negócio
+* **Parcelamento** — informe a quantidade de parcelas
+* Cada mês mostra o andamento: `Parcela 2/5 • faltam 3`
+* **Data de início** define o mês da 1ª parcela
+* **Data de vencimento** com notificação ao se aproximar
+* **Pagamento parcial** com valor e data — o sistema mostra quanto falta
+* Valores pagos (parcial ou quitado) entram em **Receitas totais**
+
+### 📊 Totais por mês
+* **Gastos totais** com o quanto já foi pago
+* **Receitas totais** (recebido de verdade) com o previsto ao lado
+* **Saldo** do empreendimento no cabeçalho
+
+---
+
+## ✨ Novidades da v9.1 — Pagamentos Parciais Detalhados
+
+### ½ Recebimentos parciais com valor e data
+* Registre **quanto** foi recebido e **quando**, quantas vezes precisar
+* O sistema calcula automaticamente **quanto ainda falta**
+* Barra de progresso com percentual recebido
+* Ao completar o valor total, o dividendo é **marcado como recebido** sozinho
+* Atalho **"Usar valor restante"** para quitar de uma vez
+* Alertas de vencimento passam a exibir o **saldo devedor**, não o valor cheio
 
 ---
 
@@ -34,6 +75,8 @@ Aplicativo de controle financeiro pessoal **100% offline**. Gerencie gastos, rec
 
 | Versão | Novidades |
 | ------ | --------- |
+| **v9.2** | 🏢 Aba Empreendimento (opcional) com gastos, receitas e dividendos |
+| **v9.1** | ½ Pagamentos parciais com valor, data e saldo restante |
 | **v9.0** | 🔔 Vencimento de dividendos + notificações |
 | **v8.0** | ⛽ Abastecimento com forma de pagamento integrada aos Gastos |
 | **v7.0** | 🚗 Aba Veículos: abastecimentos, km/mês e manutenção |
@@ -61,8 +104,14 @@ Aplicativo de controle financeiro pessoal **100% offline**. Gerencie gastos, rec
 ### 💵 Receitas
 * **Salário** e **Dividendos** separados
 * 📅 Dividendos com múltiplas parcelas e contador de andamento
-* ½ Marcar pagamento **parcial** (destaque amarelo)
+* ½ **Pagamentos parciais** com valor, data e saldo restante
 * 🔔 **Data de vencimento com notificação** *(novo na v9.0)*
+
+### 🏢 Empreendimento *(opcional — ative no Perfil)*
+* **Gastos** com categorias personalizadas e data livre
+* **Receitas** com data livre
+* **Dividendos** com parcelamento, início, vencimento e pagamento parcial
+* Totais de gastos e receitas por mês
 
 ### 🚗 Veículos
 * Cadastro de **Carro** 🚗 e **Moto** 🏍️
@@ -165,6 +214,8 @@ src/
 │   ├── CompareTab.tsx
 │   ├── ProfileTab.tsx
 │   ├── DueAlerts.tsx       # Alertas de vencimento (v9.0)
+│   ├── PartialPayments.tsx # Recebimentos parciais (v9.1)
+│   ├── BusinessTab.tsx     # Aba Empreendimento (v9.2)
 │   ├── MonthChart.tsx
 │   ├── MonthSelector.tsx
 │   ├── Avatar.tsx
